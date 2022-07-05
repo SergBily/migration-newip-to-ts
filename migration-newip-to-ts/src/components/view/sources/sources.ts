@@ -1,5 +1,5 @@
 import './sources.css';
-import { SourcesStructure } from '../../../types/index';
+import { SourcesStructure } from '../../../types/interfaces';
 
 class Sources {
     public draw(data: SourcesStructure[]): void {

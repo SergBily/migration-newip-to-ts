@@ -1,6 +1,6 @@
 import News from './news/news';
 import Sources from './sources/sources';
-import { ResponseData, NewsStructure, SourcesStructure } from '../../types/index';
+import { ResponseData, NewsStructure, SourcesStructure } from '../../types/interfaces';
 
 export type ResponseDataNews = Omit<ResponseData, 'sources'>;
 export type ResponseDataSources = Omit<ResponseData, 'totalResults' | 'articles'>;
