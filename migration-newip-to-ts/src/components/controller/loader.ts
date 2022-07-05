@@ -4,6 +4,10 @@ type GetUrlOptions = {
     readonly apiKey: string;
     sources?: string;
 };
+type ParammetsMethodGetResp = {
+    endpoint: Endpoint;
+    options?: PartsResponce;
+};
 
 class Loader {
     private readonly baseLink: string;
@@ -15,7 +19,7 @@ class Loader {
     }
 
     protected getResp<T>(
-        { endpoint, options = {} }: { endpoint: Endpoint; options?: PartsResponce },
+        { endpoint, options = {} }: ParammetsMethodGetResp,
         callback: (data: T) => void = () => {
             console.error('No callback for GET response');
         }
