@@ -7,7 +7,7 @@ enum Endpoints {
 }
 
 class AppController extends AppLoader {
-    public getSources(callback: (data: ResponseDataSources) => void) {
+    public getSources(callback: (data: ResponseDataSources) => void): void {
         super.getResp<ResponseDataSources>(
             {
                 endpoint: Endpoints.sources,
@@ -16,7 +16,7 @@ class AppController extends AppLoader {
         );
     }
 
-    public getNews(e: MouseEvent, callback: (data: ResponseDataNews) => void) {
+    public getNews(e: MouseEvent, callback: (data: ResponseDataNews) => void): void {
         let target = e.target as HTMLSpanElement;
         const newsContainer = e.currentTarget as HTMLDivElement;
 
