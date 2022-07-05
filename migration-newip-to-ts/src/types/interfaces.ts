@@ -27,6 +27,6 @@ export interface SourcesStructure {
 export interface ResponseData {
     status: string;
     totalResults: number;
-    articles: [NewsStructure];
-    sources: [SourcesStructure];
+    articles: NewsStructure[];
+    sources: SourcesStructure[];
 }
