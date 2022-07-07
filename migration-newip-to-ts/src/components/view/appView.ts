@@ -1,17 +1,18 @@
 import News from './news/news';
-import Sources from './sources/sources';
+// import Sources from './sources/sources';
 import { ResponseData, NewsStructure, SourcesStructure } from '../../types/interfaces';
+import SortSources from './sources/sortSources';
 
 export type ResponseDataNews = Omit<ResponseData, 'sources'>;
 export type ResponseDataSources = Omit<ResponseData, 'totalResults' | 'articles'>;
 
 export class AppView {
     private news: News;
-    private sources: Sources;
+    private sortSources: SortSources;
 
     constructor() {
         this.news = new News();
-        this.sources = new Sources();
+        this.sortSources = new SortSources();
     }
 
     public drawNews(data: ResponseDataNews): void {
@@ -21,7 +22,7 @@ export class AppView {
 
     public drawSources(data: ResponseDataSources): void {
         const values: SourcesStructure[] = data?.sources ? data?.sources : [];
-        this.sources.draw(values);
+        this.sortSources.sort(values);
     }
 }
 

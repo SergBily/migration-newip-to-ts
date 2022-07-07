@@ -1,7 +1,14 @@
 import './sources.css';
 import { SourcesStructure } from '../../../types/interfaces';
+import Control from '../../control/control';
 
 class Sources {
+    private control: Control;
+
+    constructor() {
+        this.control = new Control();
+    }
+
     public draw(data: SourcesStructure[]): void {
         const fragment = document.createDocumentFragment() as DocumentFragment;
         const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
@@ -16,6 +23,33 @@ class Sources {
         });
 
         (document.querySelector('.sources') as HTMLDivElement).append(fragment);
+        this.control.openListSources();
+    }
+
+    public madeListCategory(list: Set<string>): void {
+        const fragment = document.createDocumentFragment() as DocumentFragment;
+        const sourceItemTemp = document.querySelector('#sortStructure') as HTMLTemplateElement;
+        // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+        let count: number = 0;
+
+        list.forEach((item) => {
+            const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLDivElement;
+
+            const input = sourceClone.querySelector('.select__input') as HTMLInputElement;
+            input.classList.add(`${item.toLowerCase()}`);
+            input.id = `select${count}`;
+            const label = sourceClone.querySelector('.select__label') as HTMLLabelElement;
+            label.textContent = item;
+            label.htmlFor = `select${count}`;
+
+            fragment.append(sourceClone);
+            count += 1;
+        });
+        (document.querySelector('.select__content') as HTMLDivElement).append(fragment);
+
+        const labels: NodeListOf<Element> = document.querySelectorAll('.select__label');
+
+        this.control.listenerLabels(labels);
     }
 }
 

@@ -7,13 +7,25 @@
         <title>NewsPortal</title>
     </head>
     <body>
-        <header>
+        <div class="wrapper">
+          <header>
             <h1>News Portal</h1>
         </header>
         <main>
-            <div class="sources buttons"></div>
+          <div class="select" data-state="close">
+            <div class="select__title" data-default="CHOOSE CATEGORY">CHOOSE CATEGORY</div>
+            <div class="select__content">
+              <input id="singleSelect0" class="select__input" type="radio" name="singleSelect" checked/>
+              <label for="singleSelect0" class="select__label">CHOOSE CATEGORY</label>
+            </div>
+          </div>
+          <div class="sources__container">
             <div class="news"></div>
+            <div class="sources buttons"></div>
+            <img src="" alt="">
+          </div>
         </main>
+
         <footer>
           <div class="footer__container">
             <a class="link__item"
@@ -33,6 +45,12 @@
             </a>
           </div>
         </footer>
+        </div>
+
+        <template id="sortStructure">
+          <input id="" class="select__input" type="radio" name="singleSelect"/>
+          <label for="" class="select__label"></label>
+         </template>
 
         <template id="sourceItemTemp">
             <div class="source__item">
