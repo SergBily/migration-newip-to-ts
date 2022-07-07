@@ -21,7 +21,7 @@ const baseConfig = {
         },
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: 'asset/inline'
+          type: 'asset/resource'
         }
         ],
     },
