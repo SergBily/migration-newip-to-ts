@@ -29,8 +29,7 @@ class Sources {
     public madeListCategory(list: Set<string>): void {
         const fragment = document.createDocumentFragment() as DocumentFragment;
         const sourceItemTemp = document.querySelector('#sortStructure') as HTMLTemplateElement;
-        // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-        let count: number = 0;
+        let count = 0;
 
         list.forEach((item) => {
             const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLDivElement;
